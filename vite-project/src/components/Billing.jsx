@@ -40,6 +40,15 @@ const Billing = () => {
     return String(number.toFixed(0)) + "K";
   }
 
+  const getBackgrounSize = () => {
+    console.log(pageviewRef.current?.value);
+    return {
+      backgroundSize: `${
+        ((pageviewRef.current?.value || 100000) * 100) / 1000000
+      }% 100%`,
+    };
+  };
+
   return (
     <div className="Billing">
       <div className="top">
@@ -54,6 +63,7 @@ const Billing = () => {
             defaultValue="100000"
             max="1000000"
             ref={pageviewRef}
+            style={getBackgrounSize()}
           />
 
           <p className="price">
