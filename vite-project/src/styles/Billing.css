@@ -1,0 +1,193 @@
+.Billing { 
+    border-radius: 1em;
+    background-color: var(--neutral-pricing-compo-bg);
+    box-shadow: 0px 0px 20px var(--neutral-toggle-bg);
+}
+
+.Billing > * {
+    padding: 3rem;
+}
+
+.Billing .top {
+    border-bottom: 3px solid var(--neutral-main-bg);
+}
+
+.Billing .top .grid{
+    display: grid;
+    gap: 3em;
+    align-items: center;
+    grid-template-areas: 
+    "pageviews price"
+    "input     input";
+}
+
+.Billing .top .grid > .pageviews {
+    grid-area: pageviews;
+    letter-spacing: 3px;
+}
+
+.Billing .top .grid > .price {
+    grid-area: price;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: .5em;
+}
+
+.Billing .top .grid > input {
+    grid-area: input;
+}
+
+.Billing .input-range {
+    -webkit-appearance: none;
+    width: 100%;
+    height: 8px;
+    background-color: var(--full-slide-bar-clr);
+    border-radius: 5px;
+}
+
+.Billing .input-range::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  cursor: pointer;
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+  background-color: var(--slider-bg);
+  background-image: url("../images/icon-slider.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 2em;
+  box-shadow: 0 0 10px var(--slider-bg);
+}
+
+.Billing .input-range::-webkit-slider-runnable-track {
+    -webkit-appearance: none;
+  box-shadow: none;
+  border: none;
+  background: transparent;
+}
+
+.Billing .top .big {
+    font-size: 3rem;
+    color: var(--neutral-text-cta-bg);
+}
+
+.Billing .top .row {
+    margin-top: 3em;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 1em;
+}
+
+.Billing .top .row .year-bill > .discount {
+    margin-left: .5em;
+    padding: .5em;
+    border-radius: 10em;
+    background-color: var(--discount-bg);
+    color: var(--discount-text);
+}
+
+.Billing .bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.Billing .bottom .lists {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    list-style: url("../images/icon-check.svg");
+    list-style-position: outside;
+}
+
+.Billing .bottom .lists li {
+    text-indent: 1ch;
+}
+
+.Billing .bottom .btn {
+    cursor: pointer;
+    padding: 1em 4em;
+    border-radius: 10em;
+    background-color: var(--neutral-text-cta-bg);
+    color: var(--cta-text);
+}
+
+.Billing .switch {
+    display: block;
+    width: 50px;
+    height: 25px;
+    position: relative;
+}
+  
+.Billing .checkbox {
+  opacity: 0;
+  height: 0;
+  width: 0;
+}
+
+.Billing .slider {
+  position: absolute;
+  inset: 0;
+  background-color: var(--neutral-toggle-bg);
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.5s ease-out;
+}
+
+.Billing .slider::before {
+  position: absolute;
+  content: "";
+  top: 50%;
+  left: 2px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: var(--neutral-pricing-compo-bg);
+  transform: translate(0, -50%);
+  transition: 0.5s ease-out;
+}
+
+.Billing .checkbox:checked + .slider {
+  background-color: var(--slider-bg);
+}
+
+.Billing .checkbox:checked + .slider::before {
+  transform: translate(25px, -50%);
+}
+
+@media screen and (max-width:600px) {
+    .Billing {
+        margin-bottom: 5rem;
+    }
+
+    .Billing .top {
+        padding-inline: 2em;
+    }
+
+    .Billing .top .grid {
+        place-items: center;
+        grid-template-areas: 
+        "pageviews"
+        "input"
+        "price";
+    }
+
+    .Billing .bottom {
+        flex-direction: column;
+        gap: 2em;
+    }
+
+    .Billing .bottom .lists {
+        align-items: center;
+    }
+
+    .Billing .top .row .year-bill .discount {
+        display: inline-block;
+    }
+
+    .Billing .top .row .year-bill .addition {
+        display: none;
+    }
+}
